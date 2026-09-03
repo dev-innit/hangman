@@ -2,12 +2,12 @@ import random
 import time 
 
 print("Welcome to Hangman Game")
-name = input("Enter your name: ")
+name = input("Enter your name: ").strip()
 
-print("Hi " + name + ", Good Luck!")
-time.sleep(2)
-print("The game is almost commencing: v n\ Lets play Hangman")
-time.sleep(3)
+print(f"Hello {name}! Best of Luck!")
+time.sleep(1)
+print("\nThe game is almost commencing.... v \n Lets play Hangman!")
+time.sleep(1.5)
 
 def main():
     global count
