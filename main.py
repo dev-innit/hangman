@@ -6,7 +6,7 @@ name = input("Enter your name: ")
 
 print("Hi " + name + ", Good Luck!")
 time.sleep(2)
-print("The game is almost commencing: v n\ Lets play Hangman ")
+print("The game is almost commencing: v n\ Lets play Hangman")
 time.sleep(3)
 
 def main():
