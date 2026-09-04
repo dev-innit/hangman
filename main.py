@@ -44,23 +44,26 @@ def hangman():
     global already_guessed
     global play_game
     limit = 5
-    guess = input("This is the Hangman Word: " + display + " Enter your guess: \n")
-    guess = guess.strip()
-    
-    if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
-        print("Invalid Input, Try a letter\n")
-        hangman()
 
+    def get_valid_guess(already_guessed: list) -> str:
+        while True:
+            guess = input("This is the Hangman Word: " + display + " Enter your guess: ").strip().lower()
+            if len(guess) != 1 or not guess.isalpha():
+                print("Invalid input. Please enter a single letter.")
+            elif guess in already_guessed:
+                print("You have already guessed that letter. Try another one.")
+            else:
+                return guess
 
-    elif guess in word:
+    guess = get_valid_guess(already_guessed)
+    already_guessed.append(guess)
+
+    if guess in word:
         already_guessed.extend([guess])
-        index = word.find(guess)
-        word = word[:index] + "_" + word[index + 1:]
-        display = display[:index] + guess + display[index + 1:]
+        for index, letter in enumerate(word):
+            if letter == guess:
+                display = display[:index] + guess + display[index + 1:]
         print(display + "\n")
-
-    elif guess in already_guessed:
-        print("Try another letter.\n")
 
     else:
         count += 1
