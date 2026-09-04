@@ -19,6 +19,7 @@ def main():
     words_to_guess = ["january", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
     word = random.choice(words_to_guess)
     length = len(word)
+    
     count = 0
     display = '_' * length
     already_guessed = []
